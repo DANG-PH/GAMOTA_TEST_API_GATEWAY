@@ -33,7 +33,7 @@
 | Docker | Chạy Redis & RabbitMQ |
 | Swagger | API Testing |
 | RBAC | Authorization |
-| CORS, Helmet, Rate Limit | Security |
+| CORS, Helmet, Rate Limit, Validation Pipe | Security |
 
 ---
 
@@ -90,7 +90,7 @@ Vào từng project và chạy:
 
 Sau khi truy cập giao diện sẽ hiện ra như sau:
 <p align="center">
-  <img src="assets/swagger.jpg" width="500" alt="">
+  <img src="assets/swagger.jpg" width="600" alt="">
 </p>
 
 Click vào API cần test, bấm `Try it out` và xác nhận `Execute`
