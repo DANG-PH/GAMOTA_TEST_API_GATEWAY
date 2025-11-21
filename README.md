@@ -39,39 +39,32 @@
 
 ## 🏗 3. Kiến trúc hệ thống
 
-\`\`\`mermaid
-graph LR
-API_Gateway --> Auth_Service
-API_Gateway --> Player_Service
-Auth_Service --> Redis
-Auth_Service --> RabbitMQ
-RabbitMQ --> Email_Service
-\`\`\`
+- API_Gateway --> Auth_Service
+- API_Gateway --> Player_Service
+- Auth_Service --> Redis
+- Auth_Service --> RabbitMQ
+- RabbitMQ --> Email_Service
 
 ---
 
 ## 📦 4. Clone 4 Service
 
-\`\`\`bash
-git clone https://github.com/DANG-PH/GAMOTA_TEST_API_GATEWAY
-git clone https://github.com/DANG-PH/GAMOTA_TEST_AUTH_SERVICE
-git clone https://github.com/DANG-PH/GAMOTA_TEST_PLAYER_SERVICE
-git clone https://github.com/DANG-PH/GAMOTA_TEST_EMAIL_SERVICE
-\`\`\`
+- `git clone https://github.com/DANG-PH/GAMOTA_TEST_API_GATEWAY`
+- `git clone https://github.com/DANG-PH/GAMOTA_TEST_AUTH_SERVICE`
+- `git clone https://github.com/DANG-PH/GAMOTA_TEST_PLAYER_SERVICE`
+- `git clone https://github.com/DANG-PH/GAMOTA_TEST_EMAIL_SERVICE`
 
 ---
 
 ## 🐳 5. Chạy Redis & RabbitMQ 
 
-\`\`\`bash
-# Redis
-docker run -d --name redis -p 6379:6379 redis
+### Redis
+`docker run -d --name redis -p 6379:6379 redis`
 
-# RabbitMQ 
-docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
-\`\`\`
+### RabbitMQ 
+`docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management`
 
-📥 Link tải nếu không dùng Docker
+### Link tải nếu không dùng Docker
 | Phần mềm | Link tải |
 |----------|----------|
 | Redis (Windows → bản stable) | https://github.com/tporadowski/redis/releases |
@@ -85,19 +78,15 @@ docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 
 Vào từng project và chạy:
 
-\`\`\`bash
-npm install
-cp .env.example .env   # hoặc tự tạo file .env ở cùng cấp /src
-npm run start:dev
-\`\`\`
+- `npm install`
+- `cp .env.example .env`   # hoặc tự tạo file .env ở cùng cấp /src
+- `npm run start:dev`
 
 ---
 
 ## 📌 7. Truy cập Swagger
 
-\`\`\`
-http://localhost:<PORT>/api-docs #PORT của API GATEWAY
-\`\`\`
+`http://localhost:<PORT>/api-docs` #PORT của API GATEWAY
 
 ---
 
