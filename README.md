@@ -1,98 +1,117 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <img src="https://vcdn1-vnexpress.vnecdn.net/2025/03/20/GameMota-1742437039-1742437044.png?w=1200&h=0&q=100&dpr=1&fit=crop&s=kMyUCXVG9CE_B4dSdBIU6w" width="220" alt="">
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<h2 align="center">GAMOTA INTERN TEST</h2>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+<p align="center">
+  Dự án test thực tập Backend tại <strong>GAMOTA / GABROS Studio</strong>,<br>
+  xây dựng bằng <strong>NestJS Microservices</strong> và các công nghệ liên quan.
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 1. Tính năng chính
 
-## Project setup
+- Đăng ký tài khoản  
+- Đăng nhập + xác thực 2 lớp (OTP)  
+- Cấp JWT Access Token & Refresh Token  
+- Update trạng thái player  
+- RBAC – Role-based Access Control  
 
-```bash
-$ npm install
-```
+---
 
-## Compile and run the project
+## 🧠 2. Công nghệ sử dụng
 
-```bash
-# development
-$ npm run start
+| Công nghệ | Mục đích |
+|-----------|----------|
+| NestJS | Backend core |
+| gRPC | Giao tiếp giữa Microservices |
+| Redis | Cache + KeyValue Store |
+| RabbitMQ | Message Queue xử lý Email |
+| JWT | Authentication |
+| Docker | Chạy Redis & RabbitMQ |
+| Swagger | API Testing |
+| RBAC | Authorization |
+| CORS, Helmet, Rate Limit | Security |
 
-# watch mode
-$ npm run start:dev
+---
 
-# production mode
-$ npm run start:prod
-```
+## 🏗 3. Kiến trúc hệ thống
 
-## Run tests
+\`\`\`mermaid
+graph LR
+API_Gateway --> Auth_Service
+API_Gateway --> Player_Service
+Auth_Service --> Redis
+Auth_Service --> RabbitMQ
+RabbitMQ --> Email_Service
+\`\`\`
 
-```bash
-# unit tests
-$ npm run test
+---
 
-# e2e tests
-$ npm run test:e2e
+## 📦 4. Clone 4 Service
 
-# test coverage
-$ npm run test:cov
-```
+\`\`\`bash
+git clone https://github.com/DANG-PH/GAMOTA_TEST_API_GATEWAY
+git clone https://github.com/DANG-PH/GAMOTA_TEST_AUTH_SERVICE
+git clone https://github.com/DANG-PH/GAMOTA_TEST_PLAYER_SERVICE
+git clone https://github.com/DANG-PH/GAMOTA_TEST_EMAIL_SERVICE
+\`\`\`
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## 🐳 5. Chạy Redis & RabbitMQ 
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+\`\`\`bash
+# Redis
+docker run -d --name redis -p 6379:6379 redis
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+# RabbitMQ 
+docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
+\`\`\`
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+📥 Link tải nếu không dùng Docker
+| Phần mềm | Link tải |
+|----------|----------|
+| Redis (Windows → bản stable) | https://github.com/tporadowski/redis/releases |
+| RabbitMQ (Windows) | https://www.rabbitmq.com/install-windows.html |
+| Erlang (bắt buộc cho RabbitMQ) | https://www.erlang.org/downloads |
 
-## Resources
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## ⚙ 6. Cài đặt
 
-## Support
+Vào từng project và chạy:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+\`\`\`bash
+npm install
+cp .env.example .env   # hoặc tự tạo file .env ở cùng cấp /src
+npm run start:dev
+\`\`\`
 
-## Stay in touch
+---
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 📌 7. Truy cập Swagger
 
-## License
+\`\`\`
+http://localhost:<PORT>/api-docs #PORT của API GATEWAY
+\`\`\`
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+---
+
+## 🧪 8. Flow Test API
+
+| Step | API | Kết quả |
+|------|-----|----------|
+| Register | POST /api/auth/register | Tạo user |
+| Login | POST /api/auth/login | Nhận sessionId |
+| Verify OTP | POST /api/auth/verify-otp | Trả về JWT |
+| Update Player | PUT /api/player/update | Update thông tin |
+
+---
+
+
+<p align="center"><b>Cảm ơn bạn đã trải nghiệm dự án!</b></p>
+<p align="center">💬 Liên hệ: Phạm Hải Đăng – Email: dangph.ptit@gmail.com<i>(nếu cần)</i></p>
