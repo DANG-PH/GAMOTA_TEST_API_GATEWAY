@@ -1,0 +1,37 @@
+import { Injectable, Inject, Logger } from '@nestjs/common';
+import type { ClientGrpc } from '@nestjs/microservices';
+import {
+  RegisterRequest,
+  SaveGameRequest,
+  GetUserRequest,
+  UserServiceClient,
+  USER_PACKAGE_NAME,
+  USER_SERVICE_NAME,
+} from 'proto/user.pb';
+import { grpcCall } from 'src/HttpparseException/gRPC_to_Http';
+
+@Injectable()
+export class UserService {
+  private readonly logger = new Logger(UserService.name);
+  private userGrpcService: UserServiceClient;
+
+  constructor(
+    @Inject(USER_PACKAGE_NAME) private readonly client: ClientGrpc,
+  ) {}
+
+  onModuleInit() {
+    this.userGrpcService = this.client.getService<UserServiceClient>(USER_SERVICE_NAME);
+  }
+
+  async handleRegister(req: RegisterRequest) {
+    return grpcCall(UserService.name,this.userGrpcService.register(req));
+  }
+
+  async handleProfile(req: GetUserRequest) {
+    return grpcCall(UserService.name,this.userGrpcService.getProfile(req));
+  }
+
+  async handleSaveGame(req: SaveGameRequest) {
+    return grpcCall(UserService.name,this.userGrpcService.saveGame(req));
+  }
+}
