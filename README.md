@@ -88,6 +88,14 @@ Vào từng project và chạy:
 
 `http://localhost:<PORT>/api-docs` #PORT của API GATEWAY
 
+Sau khi truy cập giao diện sẽ hiện ra như sau:
+<p align="center">
+  <img src="assets/swagger.jpg" width="500" alt="">
+</p>
+
+Click vào API cần test, bấm `Try it out` và xác nhận `Execute`
+Lúc này Response sẽ hiện ra
+
 ---
 
 ## 🧪 8. Flow Test API
