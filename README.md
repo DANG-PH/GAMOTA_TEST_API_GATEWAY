@@ -85,19 +85,9 @@
 
 ---
 
-## ⚙ 7. Cài đặt
+## ⚙ 7. Cấu hình Database
 
-Vào từng project và chạy:
-
-- `npm install`
-- `cp .env.example .env`   # hoặc tự tạo file .env ở cùng cấp /src
-- `npm run start:dev`
-
----
-
-## ⚙ 8. Cấu hình Database
-
-Vào 2 project Auth và Player và tìm file .env ở cùng cấp /src
+Vào 2 project Auth và Player, tìm file .env ở cùng cấp /src
 và sửa các cấu hình:
 
 - `DB_HOST` # mặc định localhost
@@ -105,6 +95,24 @@ và sửa các cấu hình:
 - `DB_USER` # mặc định root
 - `DB_PASS` # mật khẩu cần thay đổi theo MySQL bạn cấu hình trước đó
 - `DB_NAME` # Database Name bạn muốn lưu vào ( lưu ý bạn phải tạo sẵn 2 database như trên )
+
+Lưu ý: 
+- 2 service auth và player cần có 2 database riêng biệt
+- các cấu hình host, port, user, pass có thể giống nhau nhưng DB_NAME cần khác nhau 
+- Tạo database mới trong MySQL Workbench bằng lệnh sau:
+- `CREATE DATABASE <TÊN DATABASE>`
+- Ví dụ: `CREATE DATABASE auth_db_gamota` và `CREATE DATABASE user_db_gamota`
+- khuyến nghị dùng sẵn 2 tên database có sẵn trong .env và tạo 2 database có tên như trên trong MySQL Workbench
+
+---
+
+## ⚙ 8. Cài đặt
+
+Vào từng project và chạy:
+
+- `npm install`
+- `cp .env.example .env`   # hoặc tự tạo file .env ở cùng cấp /src
+- `npm run start:dev`
 
 ---
 
