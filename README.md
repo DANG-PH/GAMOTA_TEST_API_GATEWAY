@@ -68,10 +68,12 @@
 
 ## 🐳 6. Chạy Redis & RabbitMQ 
 
-### Redis
+### Nếu dùng Docker
+
+#### Redis
 `docker run -d --name redis -p 6379:6379 redis`
 
-### RabbitMQ 
+#### RabbitMQ 
 `docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management`
 
 ### Link tải nếu không dùng Docker
@@ -80,7 +82,6 @@
 | Redis (Windows → bản stable) | https://github.com/tporadowski/redis/releases |
 | RabbitMQ (Windows) | https://www.rabbitmq.com/install-windows.html |
 | Erlang (bắt buộc cho RabbitMQ) | https://www.erlang.org/downloads |
-
 
 ---
 
