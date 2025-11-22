@@ -48,7 +48,7 @@
 
 ---
 
-## ⚙ 4. Cài đặt Node.js và MySQL Server ( Nếu chưa có )
+## ⚙ 4. Cài đặt Node.js ( Nếu chưa có ) và MySQL Server ( Có thể bỏ qua ) 
 
 | Phần mềm | Link tải |
 |----------|----------|
