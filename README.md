@@ -34,6 +34,7 @@
 | Swagger | API Testing |
 | RBAC | Authorization |
 | CORS, Helmet, Rate Limit, Validation Pipe | Security |
+| MySQL | Lưu dữ liệu người dùng |
 
 ---
 
