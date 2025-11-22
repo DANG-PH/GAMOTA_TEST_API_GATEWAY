@@ -47,7 +47,16 @@
 
 ---
 
-## 📦 4. Clone 4 Service
+## ⚙ 4. Cài đặt Node.js và MySQL Server ( Nếu chưa có )
+
+| Phần mềm | Link tải |
+|----------|----------|
+| Node.js | https://nodejs.org/en/download/ |
+| MySQL | https://dev.mysql.com/downloads/installer/ |
+
+---
+
+## 📦 5. Clone 4 Service
 
 - `git clone https://github.com/DANG-PH/GAMOTA_TEST_API_GATEWAY`
 - `git clone https://github.com/DANG-PH/GAMOTA_TEST_AUTH_SERVICE`
@@ -56,7 +65,7 @@
 
 ---
 
-## 🐳 5. Chạy Redis & RabbitMQ 
+## 🐳 6. Chạy Redis & RabbitMQ 
 
 ### Redis
 `docker run -d --name redis -p 6379:6379 redis`
@@ -74,7 +83,7 @@
 
 ---
 
-## ⚙ 6. Cài đặt
+## ⚙ 7. Cài đặt
 
 Vào từng project và chạy:
 
@@ -84,7 +93,20 @@ Vào từng project và chạy:
 
 ---
 
-## 📌 7. Truy cập Swagger
+## ⚙ 8. Cấu hình Database
+
+Vào 2 project Auth và Player và tìm file .env ở cùng cấp /src
+và sửa các cấu hình:
+
+- `DB_HOST` # mặc định localhost
+- `DB_PORT` # mặc định 3306 ( hoặc thay đổi nếu bạn đổi cổng )
+- `DB_USER` # mặc định root
+- `DB_PASS` # mật khẩu cần thay đổi theo MySQL bạn cấu hình trước đó
+- `DB_NAME` # Database Name bạn muốn lưu vào ( lưu ý bạn phải tạo sẵn 2 database như trên )
+
+---
+
+## 📌 9. Truy cập Swagger
 
 `http://localhost:<PORT>/api-docs` #PORT của API GATEWAY
 
@@ -98,7 +120,7 @@ Lúc này Response sẽ hiện ra
 
 ---
 
-## 🧪 8. Flow Test API
+## 🧪 10. Flow Test API
 
 | Step | API | Kết quả |
 |------|-----|----------|
