@@ -85,7 +85,7 @@
 
 ---
 
-## ⚙ 7. Cấu hình Database
+## ⚙ 7. Cấu hình Database ( Có thể bỏ qua, vì project đang kết nối Database trên Cloud )
 
 Vào 2 project Auth và Player, tìm file .env ở cùng cấp /src
 và sửa các cấu hình:
